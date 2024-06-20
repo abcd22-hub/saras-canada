@@ -1,0 +1,401 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Ensure horizontal overflow is hidden for the entire body */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1; /* Ensure the video stays behind the content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar img {
+    height: 50px;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #575757;
+}
+.navbar .brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .brand span {
+    font-weight: bold;
+    color: #ff5722; /* Deep Orange */
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 20px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown .dropbtn .caret {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.overlay-text button {
+    background-color: #ff5722; /* Deep Orange */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.overlay-text button:hover {
+    background-color: #e64a19; /* Darker deep orange on hover */
+}
+
+.content {
+    padding: 20px;
+    color: #333;
+    background-color: white;
+    min-height: 100vh; /* Ensure content area is at least 100vh tall */
+    z-index: 0;
+    position: relative;
+    margin-top: 100vh; /* Start below the viewport height */
+    text-align: center;
+    margin-top: 90vh; /* Decreased margin-top to reduce space */
+}
+
+.services-container {
+    display: flex;
+    padding: 20px 0;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    white-space: nowrap; /* Prevent wrapping of items */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.services-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.section {
+    flex: 0 0 auto;
+    width: 300px; /* Width of each service section */
+    margin-right: 20px; /* Space between sections */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s;
+    text-align: center; /* Align text to the left */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Truncate text with ellipsis if overflow */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.section:hover {
+    transform: scale(1.05);
+}
+
+.section a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    text-align: center;
+}
+
+.section img,
+.section video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.section div {
+    text-align: center; /* Align text to the left */
+    padding: 10px;
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Truncate text with ellipsis if overflow */
+    white-space: normal; /* Allow text to wrap within the container */
+}
+
+.service-info {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+    text-align: center; /* Align text to the left */
+}
+
+.service-info:hover {
+    transform: scale(1.05);
+}
+
+.service-item p {
+    margin: 10px; /* Add margin to create space around the paragraphs */
+    white-space: normal; /* Allow text to wrap within the container */
+    line-height: 1.6; /* Set line height for readability */
+}
+
+/* About Us Section */
+.about-us {
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    height: 100vh; /* Ensure it's full viewport height */
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    background: url('aboutusimage.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.about-us-text {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+    padding: 20px;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-top: 10vh;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.about-us p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.learn-more-btn {
+    background-color: transparent;
+    border: 2px solid #e64a19; 
+    color: #e64a19;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white background on hover */
+} 
+
+/* Search and Apply Section */
+.search-apply {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: left;
+}
+
+.search-apply img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+
+.search-apply-text {
+    flex: 1;
+    margin-bottom: 10vh;
+}
+
+.search-apply p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.search-apply-btn {
+    background-color: #ff5722; /* Deep Orange */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.search-apply-btn:hover {
+    background-color: #e64a19; /* Darker deep orange on hover */
+}
+
+/* Partner Section Styles */
+.partners {
+background-color: #f9f9f9;
+padding: 50px 20px;
+text-align: center;
+}
+
+.partners h2 {
+font-size: 2em;
+margin-bottom: 20px;
+}
+
+.partner-carousel {
+display: flex;
+justify-content: space-around;
+align-items: center;
+overflow: hidden;
+position: relative;
+margin-bottom: 20px;
+}
+
+.partner-carousel img {
+max-width: 150px;
+max-height: 80px;
+object-fit: contain;
+margin: 0 10px;
+opacity: 0.6;
+transition: opacity 0.3s ease;
+}
+
+.partner-carousel img:hover {
+opacity: 1;
+}
+
+.partner-carousel .prev, .partner-carousel .next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0, 0, 0, 0.3);
+color: white;
+border: none;
+outline: none;
+font-size: 1.5em;
+padding: 10px 15px;
+transition: background-color 0.3s ease;
+}
+
+.partner-carousel .prev:hover, .partner-carousel .next:hover {
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*footer section*/
+.footer {
+padding: 20px 0;
+text-align: center;
+background-color: #282727;
+color: white;
+font-family: 'Times New Roman', Times, serif;
+}
+.footer p {
+margin: 0;
+}
+.footer ul {
+list-style: none;
+padding: 0;
+}
+.footer ul li {
+margin: 5px 0;
+}
+
+.footer ul li a {
+color: #ddd;
+text-decoration: none;
+}
+
+.footer ul li a:hover {
+color: #fff;
+}
+
